@@ -1,0 +1,326 @@
+
+	:root {
+  --verde-eco: #2e7d32;
+  --verde-claro: #e8f5e9;
+  --madera: #8d6e63;
+  --texto-principal: #333;
+
+  --madera-clara: #d7b899;
+  --madera-media: #b08968;
+  --madera-oscura: #7f5539;
+  --crema: #f5f1ea;
+  --texto-oscuro: #3a2e25;
+}
+
+  html {
+  scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--verde-claro);
+    margin: 0;
+    padding: 0;
+  }
+
+  .contenedor {
+    max-width: 600px;
+    margin: 80px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  h1 {
+    color: var(--verde-eco);
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .btn-whatsapp {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 25px;
+    background-color: var(--verde-eco);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  .btn-whatsapp:hover {
+    background-color: #1b5e20;
+  }
+
+  .servicios {
+  margin-top: 40px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.servicio {
+  background: white;
+  border-left: 6px solid var(--verde-eco);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+
+.servicio h2 {
+  margin-top: 0;
+  color: #444;
+}
+
+.servicio p {
+  margin-bottom: 0;
+}
+
+
+
+@media (max-width: 768px) {
+  .servicios {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .hero-imagen {
+    max-height: 200px;
+  }
+}
+
+
+.header {
+	background-color: var(--verde-eco);
+	padding: 15px;
+	text-align: center;
+}
+
+.header h2 {
+	color: white;
+	margin: 0;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-btn {
+  display: none; /* 👈 oculto en desktop */
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block; /* 👈 aparece hamburguesa */
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  .menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    display: none; /* 👈 oculto por defecto */
+  }
+
+  .menu a {
+    color: #333;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu.activo {
+    display: flex; /* 👈 se abre con JS */
+  }
+}
+
+
+.menu a:last-child {
+  border-bottom: none;
+}
+
+.menu a:hover {
+  color: var(--verde-claro);
+}
+
+.menu.activo {
+  display: flex;
+}
+
+
+.contacto {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px solid #c8e6c9;
+}
+
+.contacto h2 {
+  color: var(--verde-eco);
+}
+
+.galeria {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.galeria h2 {
+  color: var(--verde-eco);
+  margin-bottom: 20px;
+}
+
+.grid-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+.grid-galeria img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.grid-galeria img:hover {
+  transform: scale(1.05);
+}
+
+.hero {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 20px auto 40px;
+  display: block;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+}
+
+.galeria2 {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 8px;
+  margin: 10px auto;
+  display: block;
+}
+
+.footer {
+  margin-top: 60px;
+  padding: 25px 15px;
+  background-color: var(--verde-eco);
+  color: white;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.beneficios {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #2e7d32;
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.activo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-size: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.cta {
+  background: #2f7d32; /* tu verde eco */
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  margin-bottom: 1.5rem;
+}
+
+.btn-cta {
+  background: #8b5a2b; /* madera */
+  color: #fafafa;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
