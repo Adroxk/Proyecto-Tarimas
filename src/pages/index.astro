@@ -47,16 +47,17 @@
     >
       Cotizar por WhatsApp
     </a>
+   
 
     <section id="quienes">
-  <h2>¿Quiénes somos?</h2>
-  <p>Somos una empresa dedicada a la venta, reparación y reciclaje de tarimas...</p>
-  </section>
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos una empresa dedicada a la venta, reparación y reciclaje de tarimas...</p>
+    </section>
 
-  <section id="productos">
-  <h2>Servicios</h2>
-  <!-- aquí van tus tarjetas o textos -->
-  </section>
+    <section id="productos">
+      <h2>Servicios</h2>
+     <!-- aquí van tus tarjetas o textos -->
+     </section>
 
   <section id="tratamiento">
   <h2>Tipo de tratamiento</h2>
@@ -84,30 +85,58 @@
   </div>
 
   <div class="servicio">
-    <h2>Reciclaje</h2>
+    <h2>Reciclaje y reutilización</h2>
     <p>Compra y reciclaje de tarimas dañadas o fuera de uso.</p>
     <button class="btn-whatsapp servicio-btn" data-mensaje="Hola, quiero vender tarimas para reciclaje.">
      Cotizar reciclaje
 </button>
 
   </div>
+ </div>
 
-  <section class="galeria">
+  <section class="reveal">
   <h2>Trabajos realizados</h2>
 
-  <div class="galeria reveal grid-galeria">
-    <img src="/images/Tarima1.jpg" loading="lazy" alt="Tarimas de madera reparadas">
-    <img src="/images/Tarima2.jpg" loading="lazy" alt="Venta de tarimas">
-    <img src="/images/Tarima3.jpg" loading="lazy" alt="Reciclaje de tarimas">
+  <div class="galeria-inner">
+  <div class="carrusel-3d">
+    <div class="carrusel-track" id="track">
+
+      <div class="carrusel-item">
+        <img src="/images/Tarima1.jpg" loading="lazy" alt="Tarimas de madera reparadas">
+      </div>
+
+      <div class="carrusel-item">
+        <img src="/images/Tarima2.jpg" loading="lazy" alt="Venta de tarimas">
+      </div>
+
+      <div class="carrusel-item">
+        <img src="/images/Tarima3.jpg" loading="lazy" alt="Reciclaje de tarimas">
+      </div>
+
+      <div class="carrusel-item">
+        <img src="/images/Tarima7.jpg" loading="lazy" alt="Ajustes de tarimas">
+      </div>
+
+      <div class="carrusel-item">
+        <img src="/images/Tarima8.jpg" loading="lazy" alt="Fabricación de tarimas a medida">
+      </div>
+
+      <div class="carrusel-item">
+        <img src="/images/Tarima9.jpg" loading="lazy" alt="Reciclaje de tarimas de madera">
+      </div>
+
+    </div>
+  </div>
   </div>
 </section>
 
-</div>
-<div class="contacto reveal">
+
+
+<div class="contenedor contacto reveal">
   <h2>Contacto</h2>
 
   <p>
-    📞 Teléfono / WhatsApp: <br />
+    📞 Teléfono / WhatsApp: <br/>
     <strong>55 1234 5678</strong>
   </p>
 
@@ -120,13 +149,12 @@
   ✅ Respuesta rápida · ♻️ Reutilización responsable · 💬 Trato directo
 </p>
 
-
-  <img src="/images/Tarimas.jpg" alt="Tarimas de madera ecológicas" class="galeria2"
-/>
-
+<div class="">
+  <img src="/images/Tarimas.jpg" alt="Tarimas de madera ecológicas" class="galeria2"/>
+</div>
 </div>
 
-  <section class="ubicacion" id="ubicacion">
+  <section class="contenedor ubicacion" id="ubicacion">
   <h2>¿Dónde nos encontramos?</h2>
 
   <p>
@@ -182,48 +210,87 @@
 <a href="#" class="whatsapp-float" id="whatsapp-float">
   <img src="/images/whatsapp.png" alt="WhatsApp" width="32" />
 </a>
+
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const boton = document.getElementById("btnWhatsapp");
+document.addEventListener("DOMContentLoaded", function() {
+  // WhatsApp botón principal
+  var boton = document.getElementById("btnWhatsapp");
+  if (boton) {
+    var telefono = "5215512345678";
+    var mensaje = encodeURIComponent("Hola, me gustaría cotizar tarimas de madera. ¿Podrían darme información?");
+    boton.setAttribute("href", "https://wa.me/" + telefono + "?text=" + mensaje);
+  }
 
-    if (!boton) return;
-
-    const telefono = "5215512345678";
-    const mensaje = encodeURIComponent(
-      "Hola, me gustaría cotizar tarimas de madera. ¿Podrían darme información?"
-    );
-
-    boton.setAttribute(
-      "href",
-      `https://wa.me/${telefono}?text=${mensaje}`
-    );
+  // WhatsApp botones de servicios
+  var botones = document.querySelectorAll(".servicio-btn");
+  botones.forEach(function(btn) {
+    if (btn instanceof HTMLElement) {
+      btn.addEventListener("click", function() {
+        var telefono = "5215512345678";
+        var mensaje = encodeURIComponent(btn.dataset && btn.dataset.mensaje ? btn.dataset.mensaje : "");
+        window.open("https://wa.me/" + telefono + "?text=" + mensaje, "_blank");
+      });
+    }
   });
-</script>
 
+  // WhatsApp botón flotante
+  var botonFlotante = document.getElementById("whatsapp-float");
+  if (botonFlotante && botonFlotante.tagName === "A") {
+    var mensajeFlotante = encodeURIComponent("Hola, me gustaría información sobre tarimas de madera.");
+    botonFlotante.setAttribute("href", "https://wa.me/5215512345678?text=" + mensajeFlotante);
+  }
 
-<script>
-  const header = document.getElementById("header");
+  // Menú hamburguesa
+  var menuBtn = document.getElementById("menuBtn");
+  var menu = document.getElementById("menu");
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", function() {
+      if (menu) menu.classList.toggle("activo");
+    });
+    menu.querySelectorAll("a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (menu) menu.classList.remove("activo");
+      });
+    });
+    window.addEventListener("scroll", function() {
+      if (menu) menu.classList.remove("activo");
+    });
+  }
 
+  // Carrusel loop
+  var track = document.getElementById('track');
+  if (track && !track.dataset.looped) {
+    var items = Array.from(track.children);
+    items.forEach(function(item) {
+      if (track) {
+        var clone = item.cloneNode(true);
+        track.appendChild(clone);
+      }
+    });
+    track.dataset.looped = "true";
+  }
+
+  // Header scroll efecto
+  var header = document.getElementById("header");
   if (header) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        header.classList.add("header-scroll");
-      } else {
-        header.classList.remove("header-scroll");
+    window.addEventListener("scroll", function() {
+      if (header) {
+        if (window.scrollY > 50) {
+          header.classList.add("header-scroll");
+        } else {
+          header.classList.remove("header-scroll");
+        }
       }
     });
   }
-</script>
 
-<script>
-  const reveals = document.querySelectorAll(".reveal");
-
+  // Reveal animación
+  var reveals = document.querySelectorAll(".reveal");
   function revelar() {
-    const windowHeight = window.innerHeight;
-
-    reveals.forEach((el) => {
-      const elementTop = el.getBoundingClientRect().top;
-
+    var windowHeight = window.innerHeight;
+    reveals.forEach(function(el) {
+      var elementTop = el.getBoundingClientRect().top;
       if (elementTop < windowHeight - 100) {
         el.classList.add("activo");
       }
@@ -232,61 +299,8 @@
 
   window.addEventListener("scroll", revelar);
   revelar();
+});
 </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const botones = document.querySelectorAll(".servicio-btn");
-    const telefono = "5215512345678";
-
-    botones.forEach((btn) => {
-      if (!(btn instanceof HTMLElement)) return;
-      btn.addEventListener("click", () => {
-        const mensaje = encodeURIComponent(btn.dataset.mensaje || "");
-        window.open(`https://wa.me/${telefono}?text=${mensaje}`, "_blank");
-      });
-    });
-  });
-</script>
-
-<script>
-const botonFlotante = document.getElementById("whatsapp-float");
-
-if (botonFlotante && botonFlotante instanceof HTMLAnchorElement) {
-  const mensaje = encodeURIComponent(
-    "Hola, me gustaría información sobre tarimas de madera."
-  );
-
-  botonFlotante.href = `https://wa.me/5215512345678?text=${mensaje}`;
-}
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menuBtn");
-    const menu = document.getElementById("menu");
-    if (menuBtn && menu) {
-      menuBtn.addEventListener("click", () => {
-        menu.classList.toggle("activo");
-      });
-      // Cerrar menú al hacer clic en un enlace
-      menu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          menu.classList.remove("activo");
-        });
-      });
-      // Cerrar menú al hacer scroll
-      window.addEventListener("scroll", () => {
-        menu.classList.remove("activo");
-      });
-    }
-  });
-</script>
-
-
-
-
 
 
 </body>
