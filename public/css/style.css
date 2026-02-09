@@ -290,6 +290,7 @@
 }
 
 .footer p {
+  color: #fff;
   margin: 5px 0;
 }
 
@@ -336,17 +337,18 @@
 
 .cta {
   background: #2f7d32; /* tu verde eco */
-  color: #fff;
   text-align: center;
   padding: 3rem 1rem;
 }
 
 .cta h2 {
+  color: #fff;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .cta p {
+  color: #fff;
   margin-bottom: 1.5rem;
 }
 
